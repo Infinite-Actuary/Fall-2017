@@ -1,7 +1,7 @@
 # Actuarial Science: a Masters Degree at [UNL](http://www.unl.edu/)
 
 ![Actuary Hero](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Actuary-Hero.jpg?raw=true)
-**Our hero flys to Lincoln!** - *With his beautiful wifes support :)*
+**Our hero flys to Lincoln!** - *Made possible by the support of his beautiful wife*
 ![UNL logo](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/UNL-logo.png?raw=true)
 
 ## [About](http://www.unl.edu/gradstudies/prospective/programs/ActuarialScience#about)
