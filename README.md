@@ -1,7 +1,7 @@
-# Actuarial Science => [MS at UNL](http://www.unl.edu/gradstudies/prospective/programs/ActuarialScience#about)
+# Actuarial Science: a Masters Degree at [UNL](http://www.unl.edu/)
 
 
-## About
+## [About](http://www.unl.edu/gradstudies/prospective/programs/ActuarialScience#about)
 
 >The [actuarial science](https://en.wikipedia.org/wiki/Actuarial_science) program provides opportunities for students seeking employment in the areas of life insurance, pensions, and property or casualty insurance. The program has produced actuaries in the United States, Canada, and over a dozen other countries.
 >
