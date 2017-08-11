@@ -21,6 +21,7 @@
 ### ACTS 840 - [Interest Theory](https://bulletin.unl.edu/courses/ACTS/840)
 `Theory of Interest. 3rd ed. Kellison.` [ISBN-13 9781259215445](https://www.amazon.com/s/field-keywords=9780073382449)
 
+>Price to own $35.26
 
 ### FINA 812 - [Life and Health Insurance](https://bulletin.unl.edu/courses/FINA/412)
 
