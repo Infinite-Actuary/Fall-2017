@@ -35,4 +35,4 @@
 
 >Price to own $20.24
 
-#### Semester Book Total: $119.85
+### Total: $119.85
