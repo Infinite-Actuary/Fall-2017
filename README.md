@@ -1,7 +1,7 @@
 # Actuarial Science MS at [UNL](http://www.unl.edu/)
 
 ![Actuary Hero](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Actuary-Hero.jpg?raw=true)
-**Our hero moves to Lincoln!** *(With his beautiful wife)*
+**Our hero moves to Lincoln!** *(with his beautiful wife)*
 ![UNL logo](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/UNL-logo.png?raw=true)
 
 ## [About](http://www.unl.edu/gradstudies/prospective/programs/ActuarialScience#about)
