@@ -1,7 +1,7 @@
 # Actuarial Science: a Masters Degree at [UNL](http://www.unl.edu/)
 
 ![Actuary Hero](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Actuary-Hero.jpg?raw=true)
-**Our hero flys to Lincoln!** - *Made possible by the support of his beautiful wife*
+**Our hero moves to Lincoln!** - *Made possible by the support of his beautiful wife*
 ![UNL logo](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/UNL-logo.png?raw=true)
 
 ## [About](http://www.unl.edu/gradstudies/prospective/programs/ActuarialScience#about)
@@ -18,4 +18,10 @@
 
 ## Books
 
+* ACTS 840 - [Interest Theory](https://bulletin.unl.edu/courses/ACTS/840)
+`Statistical Inference. 2nd ed. Casella, George., and Roger L Berger.`
+[ISBN-13 9780534243128](https://www.amazon.com/s/field-keywords=9780534243128)
 
+*
+
+*
