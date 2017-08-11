@@ -30,6 +30,6 @@
 
 ### STAT 882 - [Mathematical Statistics I - Distribution Theory](https://bulletin.unl.edu/courses/STAT/882)
 
-`Statistical Inference. 2nd ed. Casella, George & Berger.` [ISBN-13 9780534243128](https://www.amazon.com/s/field-keywords=9780534243128)
+`Statistical Inference. 2nd internationl ed. Casella, George & Berger.` [ISBN-13 9780534243128](https://www.amazon.com/s/field-keywords=9780534243128)
 
 >Price to own $20.24
