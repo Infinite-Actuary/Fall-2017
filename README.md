@@ -34,3 +34,5 @@
 `Statistical Inference. 2nd internationl ed. Casella, George & Berger.` [ISBN-13 9780534243128](https://www.amazon.com/s/field-keywords=9780534243128)
 
 >Price to own $20.24
+
+#### Semester Book Total: $119.85
