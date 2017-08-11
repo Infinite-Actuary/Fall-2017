@@ -18,7 +18,7 @@
 
 ## Books
 
-* ACTS 840 - [Interest Theory](https://bulletin.unl.edu/courses/ACTS/840)
+### ACTS 840 - [Interest Theory](https://bulletin.unl.edu/courses/ACTS/840)
 
 `Statistical Inference. 2nd ed. Casella, George., and Roger L Berger.`
 
