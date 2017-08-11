@@ -19,11 +19,17 @@
 ## Books
 
 ### ACTS 840 - [Interest Theory](https://bulletin.unl.edu/courses/ACTS/840)
+`Theory of Interest. 3rd ed. Kellison`[ISBN-13 9780073382449](https://www.amazon.com/s/field-keywords=9780073382449)
 
-`Statistical Inference. 2nd ed. Casella, George., and Roger L Berger.` [ISBN-13 9780534243128](https://www.amazon.com/s/field-keywords=9780534243128)
 
->Cost to own $20.24
+### FINA 812 - [Life and Health Insurance](https://bulletin.unl.edu/courses/FINA/412)
 
-*
+`Life Insurance. 15th ed. Black & Skipper`[ISBN-13 ISBN-13: 9780985876517](https://www.amazon.com/s/field-keywords=9780985876517)
 
-*
+>Price to rent $64.35
+
+### STAT 882 - [Mathematical Statistics I - Distribution Theory](https://bulletin.unl.edu/courses/STAT/882)
+
+`Statistical Inference. 2nd ed. Casella, George & Berger.` [ISBN-13 9780534243128](https://www.amazon.com/s/field-keywords=9780534243128)
+
+>Price to own $20.24
