@@ -1,7 +1,8 @@
 # Actuarial Science: a Masters Degree at [UNL](http://www.unl.edu/)
 
+![Actuary Hero](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Actuary-Hero.png?raw=true)
+# @
 ![UNL logo](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/UNL-logo.png?raw=true)
-![UNL seal](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/UNL-seal.png?raw=true)
 
 ## [About](http://www.unl.edu/gradstudies/prospective/programs/ActuarialScience#about)
 
@@ -13,7 +14,7 @@
 
 ## Schedule
 
-![Fall 2017 schedule]()
+![Fall 2017 schedule](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Fall-2017-schedule.png?raw=true)
 
 ## Books
 
