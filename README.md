@@ -20,6 +20,8 @@
 
 ![Fall 2017 Schedule](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Schedule.png?raw=true)
 
+* TA - Teaching Assistant
+
 ## Books
 
 ### ACTS 840 - [Interest Theory](https://bulletin.unl.edu/courses/ACTS/840)
