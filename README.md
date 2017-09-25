@@ -12,9 +12,13 @@
 >
 >The degree requires a minimum of 36 hours without a thesis. At least nine hours must be in a minor area such as computer science, insurance, finance, statistics, or economics. Students are encouraged to take as many classes as possible in finance and insurance and to join the Actuarial Science Club. The club provides students with a better understanding of the actuarial profession, assists in preparing for the professional actuarial examinations, and fosters close relationships among students in the common pursuit of an career in actuarial science.
 
-## Schedule
+## Enrolled Classes
 
-![Fall 2017 schedule](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Fall-2017-schedule.png?raw=true)
+![Fall 2017 Classes](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Fall-2017-schedule.png?raw=true)
+
+## Full Schedule
+
+![Fall 2017 Schedule](https://github.com/Infinite-Actuary/Fall-2017/blob/master/images/Schedule.png?raw=true)
 
 ## Books
 
