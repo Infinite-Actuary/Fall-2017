@@ -1,0 +1,28 @@
+* This Shazam program estimates the age elasticity of average hourly earnings of individuals
+* who work full-time and tests the hypothesis that the elasticity is one half.
+* The sample of full-time workers aged 24 to 64 years is from Nebraska
+* U.S.from the 2014 Current Population Survey, March supplement.
+set nowide
+set nowarnskip
+
+read(cps2014_NE.dat) female married nevermar wkswork &
+wsal age hsdeg somecol colldeg msdoc hrswkd white hispanic state / skiplines=1
+
+genr hours=wkswork*hrswkd
+
+*calculate wage per hour
+genr wsalphr=wsal/hours
+
+* those earning at least 4 dollars/hour
+skipif (wsalphr.le.4)
+genr y=log(wsalphr)
+genr x=log(age)
+
+* The OLS option LM prints the Jarque-Bera test statistic.
+* The statistic has a chi-square distribution under the null hypothesis that the
+* regression errors are normally distributed
+* new commands: confid, test, lm (OLS option to test normality of errors)
+ols y x /lm
+confid  x
+test x=.5
+stop

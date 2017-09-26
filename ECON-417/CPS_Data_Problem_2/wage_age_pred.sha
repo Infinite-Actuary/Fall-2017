@@ -1,0 +1,115 @@
+* This Shazam program estimates the regression of average salary per hour on
+* an individual's age for full-time workers.
+* Predictions and prediction intervals are estimated for two different age values.
+* The sample of full-time workers aged 24 to 64 years is from Nebraska
+* from the 2014 Current Population Survey, March supplement.
+
+set nowide
+set nowarnskip
+
+* The hourly wage will be predicted for an individual who is 25 years old and one who is 45 years old
+read(cps2014_NE.dat) female married nevermar wkswork &
+wsal age hsdeg somecol colldeg msdoc hrswkd white hispanic state / skiplines=1
+
+genr hours=wkswork*hrswkd
+
+*calculate wage per hour
+genr wsalphr=wsal/hours
+
+* those earning at least 4 dollars/hour
+skipif (wsalphr.le.4)
+
+ *statistics for full-time workers
+stat wsalphr age hsdeg somecol colldeg msdoc 
+
+* Prediction interval uses 95% confidence level
+gen1 alpha=.025
+* $n is a temporary variable that saves the number of observations
+gen1 degof=$n-2
+
+* T-value for 95% confidence level prediction interval is saved as "tval"
+distrib alpha /inverse type=t df=degof critical=tval
+ols wsalphr age
+
+* Use the test command to calculate the predicted wage: b1 + b2 age
+*** For age=25
+* The test statistic for testing H0: (beta1 + beta2*25) = 0
+*  tstat = (b1 + b2*25)/se
+* 
+test constant+age*25
+
+* The "test value" is the numerator of the test statistic, and its value is saved as "$val"
+* The denominator of the test statistic is the standard error of the estimate, b1 + b2*25,
+* and is saved as "$stes"
+gen1 wage25=$val
+gen1 sterr25=$stes
+
+* The estimated mean wage of 25-year-old workers is
+print wage25
+
+* The estimated standard error of the estimate is
+print sterr25
+
+*  A 95% confidence interval for the expected wage of 25-year-old workers in Nebraska
+gen1 lower=wage25 -tval*sterr25
+gen1 upper=wage25+tval*sterr25
+print lower upper
+
+* for age=45, ? supresses output
+?ols wsalphr age
+test constant+age*45
+gen1 wage45=$val
+gen1 sterr45=$stes
+
+* The estimated mean wage of 45-year-old workers is
+print wage45
+
+* The estimated standard error of the estimate is
+print sterr45
+
+*  A 95% confidence interval for the expected wage of 45-year-old workers in Nebraska
+gen1 lower=wage45 -tval*sterr45
+gen1 upper=wage45+tval*sterr45
+print lower upper
+
+**
+** If, instead of estimating the mean wage of 25-year-old workers,
+** we wanted to predict the wage of a worker drawn at random from all the
+** 25-year-old workers in the population, we would need to increase the 
+** estimated standard error.
+** We would add "sigmahat-squared" (saved as $sig2) to the
+** original estimated variance to account for the variance of the
+** regression error, e = (wsalphr|age=25) - (b1 + b2*25)
+**
+
+*  The variance of the prediction error of the wage of a 25 year old worker is
+gen1 var25=$sig2 +(sterr25**2)
+
+* The estimated standard error is
+gen1 sterr25=sqrt(var25)
+
+* The estimated standard error of the estimate is
+print sterr25
+
+*  A 95% prediction interval for the wage of a 25 year old worker in Nebraska
+gen1 lower=wage25 -tval*sterr25
+gen1 upper=wage25+tval*sterr25
+print lower upper
+
+** To predict the wage of a 45 year old worker in Nebraska
+*  The variance of the prediction error of the wage of a 45 year old worker is
+gen1 var45=$sig2+(sterr45**2)
+
+* The estimated standard error is
+gen1 sterr45=sqrt(var45)
+
+* The estimated standard error of the estimate is
+print sterr45
+
+*  A 95% prediction interval for the wage of a 45 year old worker in Nebraska
+gen1 lower=wage45 -tval*sterr45
+gen1 upper=wage45+tval*sterr45
+print lower upper
+
+stop
+

@@ -1,0 +1,139 @@
+* set options
+set nowide
+set nowarnskip
+
+* read in the data
+read(cps2014_NE.dat) female married nevermar wkswork &
+wsal age hsdeg somecol colldeg msdoc hrswkd white hispanic state / skiplines=1
+
+* total hours
+genr hours=wkswork*hrswkd
+
+* wage per hour
+genr wsalphr=wsal/hours
+
+* consider those earning at least 4 dollars/hour
+skipif (wsalphr.le.4)
+
+*** Part 1.
+
+* log(wsalphr) = beta_1 + beta_2 * log(age) + e
+* the parameter beta_2 is the elasticity of y with respect to x
+genr y=log(wsalphr)
+genr x=log(age)
+
+** a) R-square values, slope & intercept estimates
+ols y x /lm
+
+** b) Test the null hypothesis that the wage elasticity with respect to the worker's age is equal to 0.25 against the alternative
+confid  x
+test x=0.25
+
+*** Part 2.
+
+* log(wsalphr) = beta_1 + beta_2 * age + e
+
+* The log-linear specification uses the logarithm of the dependent variable and the level of the explanatory
+* variable. The coefficient on age times 100% is the change in wage associated with a one year increase in age
+
+** a) Rsquare, slope & intercept estimates
+** b) Calculate a 95% confidence interval for the slope coefficient
+ols y age
+
+*** Part 3.
+
+* wsalphr = beta_1 + beta_2 * age + e
+
+** a) Rsquare values, slope & intercept estimates
+ols wsalphr age
+
+** b)
+
+* Prediction interval uses 95% confidence level
+gen1 alpha=.025
+* $n is a temporary variable that saves the number of observations
+gen1 degof=$n-2
+
+* Use the test command to calculate the predicted wage: b1 + b2 age
+*** For age=25
+* The test statistic for testing H0: (beta1 + beta2*25) = 0
+*  tstat = (b1 + b2*25)/se
+* 
+test constant+age*25
+
+* The "test value" is the numerator of the test statistic, and its value is saved as "$val"
+* The denominator of the test statistic is the standard error of the estimate, b1 + b2*25,
+* and is saved as "$stes"
+gen1 wage25=$val
+gen1 sterr25=$stes
+
+* The estimated mean wage of 25-year-old workers is
+print wage25
+
+* The estimated standard error of the estimate is
+print sterr25
+
+*  A 95% confidence interval for the expected wage of 25-year-old workers in Nebraska
+gen1 lower=wage25 -tval*sterr25
+gen1 upper=wage25+tval*sterr25
+print lower upper
+
+* for age=45, ? supresses output
+?ols wsalphr age
+test constant+age*45
+gen1 wage45=$val
+gen1 sterr45=$stes
+
+* The estimated mean wage of 45-year-old workers is
+print wage45
+
+* The estimated standard error of the estimate is
+print sterr45
+
+*  A 95% confidence interval for the expected wage of 45-year-old workers in Nebraska
+gen1 lower=wage45 -tval*sterr45
+gen1 upper=wage45+tval*sterr45
+print lower upper
+
+** c)
+
+**
+** If, instead of estimating the mean wage of 25-year-old workers,
+** we wanted to predict the wage of a worker drawn at random from all the
+** 25-year-old workers in the population, we would need to increase the 
+** estimated standard error.
+** We would add "sigmahat-squared" (saved as $sig2) to the
+** original estimated variance to account for the variance of the
+** regression error, e = (wsalphr|age=25) - (b1 + b2*25)
+**
+
+*  The variance of the prediction error of the wage of a 25 year old worker is
+gen1 var25=$sig2 +(sterr25**2)
+
+* The estimated standard error is
+gen1 sterr25=sqrt(var25)
+
+* The estimated standard error of the estimate is
+print sterr25
+
+*  A 95% prediction interval for the wage of a 25 year old worker in Nebraska
+gen1 lower=wage25 -tval*sterr25
+gen1 upper=wage25+tval*sterr25
+print lower upper
+
+** To predict the wage of a 45 year old worker in Nebraska
+*  The variance of the prediction error of the wage of a 45 year old worker is
+gen1 var45=$sig2+(sterr45**2)
+
+* The estimated standard error is
+gen1 sterr45=sqrt(var45)
+
+* The estimated standard error of the estimate is
+print sterr45
+
+*  A 95% prediction interval for the wage of a 45 year old worker in Nebraska
+gen1 lower=wage45 -tval*sterr45
+gen1 upper=wage45+tval*sterr45
+print lower upper
+
+stop

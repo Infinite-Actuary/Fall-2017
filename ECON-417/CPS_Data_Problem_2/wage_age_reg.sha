@@ -1,0 +1,59 @@
+*This Shazam program estimates the effect of age on workers hourly wage
+* Two bivariate regression models are estimated: one in levels and the other in logs.
+* The sample is full-time workers in Nebraska aged 24 to 64 years old
+* from the 2014 CurrentPopulation Survey, March supplement.
+
+set nowide
+set nowarnskip
+read(cps2014_NE.dat) female married nevermar wkswork &
+wsal age hsdeg somecol colldeg msdoc hrswkd nonwht hispanic state / skiplines=1
+
+genr hours=wkswork*hrswkd
+
+*calculate wage per hour
+genr wsalphr=wsal/hours
+
+* those earning at least 4 dollars/hour
+skipif (wsalphr.le.4)
+
+* descriptive statistics
+stat wsalphr age hsdeg colldeg msdoc
+
+skipif(age.le.35)
+* workers over 35 years old
+stat wsalphr age hsdeg colldeg msdoc /mean=mnold
+delete skip$
+
+skipif (wsalphr.le.4)
+skipif (age.gt.35)
+* workers 35 years old and younger
+stat wsalphr age hsdeg colldeg msdoc /mean=mnyoung
+
+*
+* difference in mean wage = mnold-mnyoung
+gen1 diffw=mnold:1-mnyoung:1
+print diffw
+delete skip$
+*
+*
+
+* sample of full-time workers
+* dum(x) = 1 if x > 0, = 0 otherwise
+genr dold=dum(age.gt.35)
+skipif (wsalphr.le.4)
+
+* estimate average wage of young workers by intercept and average wage premium for being old by slope in regression
+ols wsalphr dold
+ols wsalphr age
+
+* The log-log specification constrains the elasticity to be constant. The elasticity of y with respect to
+* x is the slope of the regression line
+genr y=log(wsalphr)
+genr x=log(age)
+ols y x / loglog
+
+* The log-linear specification uses the logarithm of the dependent variable and the level of the explanatory
+* variable. The coefficient on age times 100% is the change in wage associated with a one year increase in age
+ols y age
+stop
+
