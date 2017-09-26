@@ -23,7 +23,7 @@ genr y=log(wsalphr)
 genr x=log(age)
 
 ** a) R-square values, slope & intercept estimates
-ols y x /lm
+ols y x
 
 ** b) Test the null hypothesis that the wage elasticity with respect to the worker's age is equal to 0.25 against the alternative
 confid  x
@@ -41,25 +41,28 @@ test x=0.25
 ols y age
 
 *** Part 3.
-
 * wsalphr = beta_1 + beta_2 * age + e
 
-** a) Rsquare values, slope & intercept estimates
-ols wsalphr age
-
-** b)
 
 * Prediction interval uses 95% confidence level
 gen1 alpha=.025
+
 * $n is a temporary variable that saves the number of observations
 gen1 degof=$n-2
+
+* T-value for 95% confidence level prediction interval is saved as "tval"
+distrib alpha /inverse type=t df=degof critical=tval
+
+** a) Rsquare values, slope & intercept estimates
+ols wsalphr age
 
 * Use the test command to calculate the predicted wage: b1 + b2 age
 *** For age=25
 * The test statistic for testing H0: (beta1 + beta2*25) = 0
 *  tstat = (b1 + b2*25)/se
-* 
 test constant+age*25
+
+** b)
 
 * The "test value" is the numerator of the test statistic, and its value is saved as "$val"
 * The denominator of the test statistic is the standard error of the estimate, b1 + b2*25,
