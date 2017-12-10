@@ -35,7 +35,7 @@
 
 >Price to rent $64.35
 
-**After taking this course, I would recommend you DO NOT waste your money renting/purchasing this book.**
+*After taking this course, I would recommend you DO NOT waste your money renting/purchasing this book.*
 
 ### STAT 882 - [Mathematical Statistics I - Distribution Theory](https://bulletin.unl.edu/courses/STAT/882)
 
